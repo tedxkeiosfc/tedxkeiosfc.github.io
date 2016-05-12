@@ -1,0 +1,14 @@
+@import "compass";
+@import "partials/partials";
+@import "variable";
+
+//*--------------------------------------------------------------------------*/
+
+@media screen and (max-width: $global-width + 1) {
+  #header {
+    position: relative;
+  }
+  #content-wrapper {
+    padding-top: 0;
+  }
+}

@@ -1,0 +1,37 @@
+//*****************************************************************************
+// 共通して使うミックスイン _mixin.scss -> x
+// 2013/02/17 ikai
+//*****************************************************************************
+
+//*--------------------------------------------------------------------------*/
+// テキストを隠す(ikai)
+//*--------------------------------------------------------------------------*/
+@mixin hide-text {
+  text-indent: 200%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+//*--------------------------------------------------------------------------*/
+// background-imageを利用してリンクを作る(ikai)
+// @param $imgurl リンクにしたい画像を相対urlで指定
+// @param $container-height そのリンクを置く場所の高さを指定(すると縦中央にpadding)
+//*--------------------------------------------------------------------------*/
+@mixin link-with-background-image($imgurl, $container-height: false) {
+  $width: image-width($imgurl);
+  $height: image-height($imgurl);
+
+  margin: 0;
+  padding: 0;
+  display: block;
+  background-image: url($imgurl);
+  width: $width;
+  height: $height;
+  background-repeat: no-repeat;
+  background-position: center center;
+  @include hide-text;
+
+  @if $container-height {
+    padding: ($container-height - $height) / 2 0;
+  }
+}
+//*--------------------------------------------------------------------------*/
